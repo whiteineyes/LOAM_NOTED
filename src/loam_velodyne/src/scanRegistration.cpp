@@ -103,12 +103,13 @@ float imuVeloXCur = 0, imuVeloYCur = 0, imuVeloZCur = 0;
 //当前点的位移信息
 float imuShiftXCur = 0, imuShiftYCur = 0, imuShiftZCur = 0;
 
-//每次点云数据当前点相对于开始第一个点的畸变位移，速度
+//每次点云数据当前点相对于开始第一个点的畸变位移
 float imuShiftFromStartXCur = 0, imuShiftFromStartYCur = 0, imuShiftFromStartZCur = 0;
+//每次点云数据当前点相对于开始第一个点的速度差
 float imuVeloFromStartXCur = 0, imuVeloFromStartYCur = 0, imuVeloFromStartZCur = 0;
 
 //IMU信息
-double imuTime[imuQueLength] = {0};
+double imuTime[imuQueLength] = {0};//IMU时间
 //IMU姿态
 float imuRoll[imuQueLength] = {0};
 float imuPitch[imuQueLength] = {0};
