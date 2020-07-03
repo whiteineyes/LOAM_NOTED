@@ -67,8 +67,8 @@ const double scanPeriod = 0.1;
 
 //初始化控制变量
 const int systemDelay = 20;//弃用前20帧初始数据
-int systemInitCount = 0;
-bool systemInited = false;
+int systemInitCount = 0;//系统初始计数器
+bool systemInited = false;//系统初始化状态
 
 //激光雷达线数
 const int N_SCANS = 16;
@@ -89,15 +89,18 @@ int imuPointerLast = -1;
 //imu循环队列长度
 const int imuQueLength = 200;
 
-//点云数据开始第一个点的位移/速度/欧拉角
+//点云数据开始第一个点的欧拉角
 float imuRollStart = 0, imuPitchStart = 0, imuYawStart = 0;
-float imuRollCur = 0, imuPitchCur = 0, imuYawCur = 0;
-
+//点云数据开始第一个点的速度
 float imuVeloXStart = 0, imuVeloYStart = 0, imuVeloZStart = 0;
+//点云数据开始第一个点的位移
 float imuShiftXStart = 0, imuShiftYStart = 0, imuShiftZStart = 0;
 
-//当前点的速度，位移信息
+//当前点的欧拉角
+float imuRollCur = 0, imuPitchCur = 0, imuYawCur = 0;
+//当前点的速度
 float imuVeloXCur = 0, imuVeloYCur = 0, imuVeloZCur = 0;
+//当前点的位移信息
 float imuShiftXCur = 0, imuShiftYCur = 0, imuShiftZCur = 0;
 
 //每次点云数据当前点相对于开始第一个点的畸变位移，速度
@@ -106,18 +109,19 @@ float imuVeloFromStartXCur = 0, imuVeloFromStartYCur = 0, imuVeloFromStartZCur =
 
 //IMU信息
 double imuTime[imuQueLength] = {0};
+//IMU姿态
 float imuRoll[imuQueLength] = {0};
 float imuPitch[imuQueLength] = {0};
 float imuYaw[imuQueLength] = {0};
-
+//IMU加速度
 float imuAccX[imuQueLength] = {0};
 float imuAccY[imuQueLength] = {0};
 float imuAccZ[imuQueLength] = {0};
-
+//IMU速度
 float imuVeloX[imuQueLength] = {0};
 float imuVeloY[imuQueLength] = {0};
 float imuVeloZ[imuQueLength] = {0};
-
+//IMU位移
 float imuShiftX[imuQueLength] = {0};
 float imuShiftY[imuQueLength] = {0};
 float imuShiftZ[imuQueLength] = {0};
