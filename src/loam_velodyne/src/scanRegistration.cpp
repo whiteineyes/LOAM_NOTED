@@ -62,7 +62,7 @@ using std::sin;
 using std::cos;
 using std::atan2;
 
-//扫描周期, velodyne频率10Hz，周期0.1s。
+//扫描周期, velodyne频率10Hz，周期0.1s
 const double scanPeriod = 0.1;
 
 //初始化控制变量
